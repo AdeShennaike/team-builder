@@ -1,7 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import React, {useState} from 'react'
+import Form from './Form'
+
+const teamFactsBe = [
+  {name: 'Jada'}, 
+  {name: 'Justin'},
+  {name: 'Nyamekye'}
+] 
+
 
 function App() {
+  const [team, setTeam] = useState(teamFactsBe)
+console.log(team)
+
   return (
     <div className="App">
       <header className="App-header">
