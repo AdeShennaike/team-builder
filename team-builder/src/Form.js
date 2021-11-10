@@ -1,35 +1,37 @@
 import React from 'react'
 
-export default function Form(props){
-    const onChange = evt => {
-        const name = evt.target.name
-        const value = evt.target
+const Form = (props) =>{
+    const handleChange = evt => {
+        const {name, value} = evt.target
+        props.change(name, value)
+    }
+
+    const handleSubmit = evt => {
+        evt.preventDefault()
+        props.submit()
     }
 
     return(
-    <form>
+    <form onSubmit={handleSubmit}>
         <div>
-            <label>
-                Name
+            <label>Name
                 <input
-                name='name'
-                type='text'
-                value=''
-                onChange={onChange}
+                    name='name'
+                    type='text'
+                    value={values.name}
+                    onChange={handleChange}
             />
             </label>
-            <label>
-                Email
+            <label>Email
                 <input
-                name='email'
-                type='email'
-                value=''
-                onChange={onChange}
+                    name='email'
+                    type='email'
+                    value=''
+                    onChange={handleChange}
             />
             </label>
-            <label>
-                Role
-                <select value={value.role} name="role" onChange={onChange}>
+            <label>Role
+                <select value={value.role} name="role" onChange={handleChange}>
                 <option value="">-- Select a Role --</option>
                 <option value="Sniper">Sniper</option>
                 <option value="Heavy Weapons">Heavy Weapons</option>
@@ -39,3 +41,5 @@ export default function Form(props){
         </div>
     </form>
     )}
+
+    export default Form
